@@ -1,3 +1,4 @@
+# 유클리드 호제법
 def gcd(x, y):
    while y:
        x, y = y, x % y
