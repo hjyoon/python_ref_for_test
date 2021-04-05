@@ -1,3 +1,5 @@
+from collections import deque
+
 graph_list = {1: set([3, 4]),
               2: set([3, 4, 5]),
               3: set([1, 5]),
@@ -6,16 +8,15 @@ graph_list = {1: set([3, 4]),
               6: set([3, 5])}
 root_node = 1
 
-def DFS_with_adj_list(graph, root):
+def BFS_with_adj_list(graph, root):
     visited = []
-    stack = [root]
+    queue = deque([root])
 
-    while stack:
-        n = stack.pop()
+    while queue:
+        n = queue.popleft()
         if n not in visited:
             visited.append(n)
-            stack += graph[n] - set(visited)
-            stack.sort(reverse=True)
+            queue += graph[n] - set(visited)
     return visited
 
-print(DFS_with_adj_list(graph_list, root_node))
+print(BFS_with_adj_list(graph_list, root_node))
