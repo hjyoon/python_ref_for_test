@@ -10,7 +10,7 @@ mid = 0
 
 while left <= right:
     mid = (left + right) // 2
-    if m_list[mid] == target: # 단순 이분탐색일 경우 도중에 빠져나올 수 있음
+    if m_list[mid] == target: # 값을 찾았을 경우 탐색 중단
         break
     if m_list[mid] > target:
         right = mid - 1

@@ -1,12 +1,12 @@
 target = 25
 m_list = [30, 94, 27, 92, 21, 37, 25, 47, 1, 53, 98, 19, 34, 32, 7]
 # m_list = [1, 7, 19, 21, 25, 27, 30, 32, 34, 37, 47, 53, 92, 94, 98] # sorted
-length = len(m_list)
-
 m_list.sort()
-left = 0 
-right = length-1
+
+left = 0 # 정답이 될 수 있는 최소값을 지정
+right = len(m_list) - 1 # 정답이 될 수 있는 최대값을 지정
 mid = 0
+res = 0
 
 def chk():
     if m_list[mid] > target:
@@ -20,6 +20,7 @@ while left <= right:
     #     break
     if chk():   # 파라메트릭 서치인 경우, 조건의 참 거짓 유무를 밝히는 것이 복잡할 수 있으므로, 함수로 빼는것이 좋다.
         right = mid - 1
+        # res = mid # 특정 조건을 만족할때만 정답을 업데이트 하는 경우
     else :
         left = mid + 1
 
