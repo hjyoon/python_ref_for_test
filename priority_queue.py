@@ -1,7 +1,7 @@
 import heapq
 
 pq = [3, 5, 6, 2, 7, 1, 8, 4]
-heapq.heapify(pq) # queue를 힙으로 변환
+heapq.heapify(pq) # 이미 생성되어 있는 리스트를 힙으로 변환
 
 a = heapq.heappop(pq) # 힙에서 최소값을 리턴하고 그 값을 힙에서 삭제
 print(a)
@@ -34,3 +34,30 @@ print(a)
 
 a = heapq.nsmallest(3, pq) # iterable에서 최소값을 순서대로 n개만큼 복사하여 리스트로 반환한다. (효율적으로 동작하려면 iterable이 heap이어야 한다.)
 print(a)
+
+# 최대힙 만들기
+# 파이썬의 heapq 모듈은 최소 힙으로 구현되어 있기 때문에 최대 힙 구현을 위해서는 트릭이 필요하다.
+# IDEA: y = -x 변환을 하면 최솟값 정렬이 최댓값 정렬로 바뀐다.
+
+# 방법 1 : item을 -item으로 push 한다
+pq = []
+# 9, 4, 7, 2, 14 를 최대힙으로 구현할 때 부호를 반대로 해서 push 한다.
+heapq.heappush(pq, -9)
+heapq.heappush(pq, -4)
+heapq.heappush(pq, -7)
+heapq.heappush(pq, -2)
+heapq.heappush(pq, -14)
+
+# 부호를 반대로 해서 push 했기 때문에 반대로 pop할때도 부호를 반대로 해준다.
+while len(pq) > 0:
+    print(-heapq.heappop(pq))
+
+# 방법 2 : (-item, item) 형태의 tuple로 push 한다.
+heapq.heappush(pq, (-9, 9))
+heapq.heappush(pq, (-4, 4))
+heapq.heappush(pq, (-7, 7))
+heapq.heappush(pq, (-2, 2))
+heapq.heappush(pq, (-14, 14))
+
+while len(pq) > 0:
+    print(heapq.heappop(pq)[1])
