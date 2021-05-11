@@ -7,9 +7,9 @@ def factorize(n):
             return 5
         k = 5
         while k * k <= n:
-            if n % k is 0:
+            if n % k == 0:
                 return k
-            if n % (k + 2) is 0:
+            if n % (k + 2) == 0:
                 return k + 2
             k += 6
         return n
@@ -18,7 +18,7 @@ def factorize(n):
     result, a, b = [], 2, 0
     while n > 1:
         # a로 나눌 수 있는 만큼 반복하면서 지수를 늘려나간다.
-        while n % a is 0:
+        while n % a == 0:
             n, b = n // a, b + 1
         # 한 번 이상 나눴다면 (a, b) 쌍을 결과에 추가한다.
         if b > 0:
