@@ -9,40 +9,31 @@ tree = {
     }
 
 root = 'A'
-trace = []
 
 def postorder(N):
     if N == None:
-        return
+        return []
     else:
-        postorder(tree[N]['left'])
-        postorder(tree[N]['right'])
-        trace.append(N)
+        a = postorder(tree[N]['left'])
+        b = postorder(tree[N]['right'])
+        return [*a] + [*b] + [N]
 
 def preorder(N):
     if N == None:
-        return
+        return []
     else:
-        trace.append(N)
-        preorder(tree[N]['left'])
-        preorder(tree[N]['right'])
+        a = preorder(tree[N]['left'])
+        b = preorder(tree[N]['right'])
+        return [N] + [*a] + [*b]
 
 def inorder(N):
     if N == None:
-        return
+        return []
     else:
-        inorder(tree[N]['left'])
-        trace.append(N)
-        inorder(tree[N]['right'])
+        a = inorder(tree[N]['left'])
+        b = inorder(tree[N]['right'])
+        return [*a] + [N] + [*b]
 
-trace.clear()
-postorder(root)
-print(f'postorder : {"".join(trace)}')
-
-trace.clear()
-preorder(root)
-print(f'preorder : {"".join(trace)}')
-
-trace.clear()
-inorder(root)
-print(f'inorder : {"".join(trace)}')
+print(f'postorder : {" ".join(postorder(root))}')
+print(f'preorder : {" ".join(preorder(root))}')
+print(f'inorder : {" ".join(inorder(root))}')
