@@ -61,3 +61,11 @@ heapq.heappush(pq, (-14, 14))
 
 while len(pq) > 0:
     print(heapq.heappop(pq)[1])
+
+# tuple로 구성된 list도 heap으로 만들 수 있다. (tuple의 첫번째 원소부터 차례대로 비교)
+pq = [(1, 1, 2), (2, 1, 2), (2, 1, 1), (2, 2, 2), (3, 1, 1), (1, 1, 3), (1, 1, 1), (2, 2, 1)]
+heapq.heapify(pq)
+
+print('========== tuple 출력 ==========')
+while pq:
+    print(heapq.heappop(pq), end=' ')
