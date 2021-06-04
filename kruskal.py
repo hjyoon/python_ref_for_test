@@ -37,8 +37,7 @@ def kruskal(graph):
     edges.sort()
 
     # 3. 간선 연결 (사이클 없는)
-    for e in edges:
-        w, v, u = e
+    for w, v, u in edges:
         if find(v) != find(u):
             union(v, u)
             mst.setdefault(v, {})[u] = w
