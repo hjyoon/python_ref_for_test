@@ -1,3 +1,5 @@
+# Trie = Prefix Tree
+
 class Node(object):
     def __init__(self, key, data=None):
         self.key = key
@@ -39,3 +41,24 @@ word_trie.insert('ab')
 word_trie.insert('abc')
 word_trie.insert('car')
 print(word_trie.search('abc'))
+
+# dictionary 를 사용하여 trie 모방하기
+l = ['ab', 'abc', 'car', 'call']
+graph = {
+        # 'a':False,
+        # 'ab':True,
+        # 'abc':True,
+        # 'c':False,
+        # 'ca':False,
+        # 'car':True,
+        # 'cal':False,
+    }
+for s in l:
+    tmp = ''
+    for c in s:
+        tmp += c
+        if tmp not in graph:
+            graph[tmp] = False
+    graph[tmp] = True
+
+print(graph)
