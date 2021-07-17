@@ -26,14 +26,3 @@ graph = [
 
 dist = floyd_warshall(graph)
 print(*dist, sep='\n')
-
-d = dict()
-d['three'] = 3
-d['one'] = 1
-d['four'] = 4
-d['two'] = 2
-
-while d:
-    print(d.popitem())
-
-#from heapdict import heapdict
