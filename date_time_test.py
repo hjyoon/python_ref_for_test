@@ -4,6 +4,8 @@ print(datetime.timedelta(days=1, hours=30, minutes=100))
 print(datetime.timedelta(days=5, seconds=63000))
 print(datetime.timedelta(weeks=7))
 
+print(datetime.datetime.now())
+
 print(datetime.date.today())
 print(datetime.date.today().replace(year=2020))
 
