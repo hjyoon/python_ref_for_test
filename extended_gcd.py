@@ -10,3 +10,4 @@ def extended_gcd(a, b):
     return gcd, x, y
 
 print(extended_gcd(3, 11))
+print(extended_gcd(23, 1337))

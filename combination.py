@@ -27,13 +27,13 @@ def nextComb(flag, n, r):
     return True
 
 
-l = [0, 0]  # 어떤 조합을 선택할지 인덱스가 저장되는 곳
+l = [0, 1]  # 어떤 조합을 선택할지 인덱스가 저장되는 곳
 target = ['a', 'b', 'c', 'd']
 result = []
 while True:
+    result.append(tuple(map(lambda x: target[x], l)))
     if not nextComb(l, 4, 2):
         break
-    result.append(tuple(map(lambda x: target[x], l)))
 print(result)
 
 # 내장 함수 사용

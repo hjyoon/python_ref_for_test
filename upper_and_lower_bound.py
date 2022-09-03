@@ -18,5 +18,5 @@ def lower_bound(s, e, d, l):
 
 L = [10,10,20,20,20,30,30,40,40,40,40,50,50,60]
 
-print(upper_bound(0, len(L), 15, L))
-print(lower_bound(0, len(L), 15, L))
+print(upper_bound(0, len(L), 10, L))
+print(lower_bound(0, len(L), 10, L))

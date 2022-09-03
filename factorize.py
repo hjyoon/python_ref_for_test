@@ -5,7 +5,7 @@ def factorize(n):
             return 3
         if m == 3:
             return 5
-        k = 5
+        k = m if m % 6 == 5 else m - 2
         while k * k <= n:
             if n % k == 0:
                 return k

@@ -12,4 +12,4 @@ def get_divisor(n):
 
     return divisors + divisors_back[::-1]
 
-print(get_divisor(60))
+print(get_divisor(258))
